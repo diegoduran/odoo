@@ -443,7 +443,7 @@ return AbstractModel.extend({
         var domain = [[this.mapping.date_start, '<=', dateToServer(this.data.end_date)]];
         if (this.mapping.date_stop) {
             domain.push([this.mapping.date_stop, '>=', dateToServer(this.data.start_date)]);
-        } else if (!this.mapping.date_delay) {
+        } else if (this.mapping.date_delay) {
             domain.push([this.mapping.date_start, '>=', dateToServer(this.data.start_date)]);
         }
         return domain;
